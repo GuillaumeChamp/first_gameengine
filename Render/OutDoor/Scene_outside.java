@@ -68,7 +68,7 @@ public class Scene_outside extends Game_Scene {
         if (offSetLandY >= player.location.getSizeY()-printLimitY) offSetLandY = player.location.getSizeY()-printLimitY;
         //Fixme : define a Level print size
         gc.drawImage(player.location.getBackground(),offSetLandX,offSetLandY, printLimitX, printLimitY,0,0, printLimitX *xRatio,yRatio* printLimitY);
-        gc.drawImage(player.skin.getFrame(t), (player.skin.getPositionX() - offSetLandX)*xRatio, (player.skin.getPositionY()-offSetLandY)*yRatio);
+        gc.drawImage(player.skin.getFrame(t), (player.skin.getPositionX() - offSetLandX)*xRatio, (player.skin.getPositionY()-offSetLandY)*yRatio,40*xRatio,40*yRatio);
     }
 
     @Override
