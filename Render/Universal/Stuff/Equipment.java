@@ -1,10 +1,13 @@
 package Universal.Stuff;
 
 public class Equipment extends Item{
-    enum Position {hand1,hand2,head,chestplate,arms,legs,foot,accessory}
-    Position position;
+    enum Slot {hand1,hand2,head,chestplate,arms,legs,foot,accessory}
+    boolean isEquip;
+    Slot slot;
 
-    public Equipment(Position position){
-        this.position = position;
+    public Equipment(Slot slot){
+        this.slot = slot;
     }
+
+    //TODO : build equip and un-equip
 }

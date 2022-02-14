@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
-public class Fight_Scene extends Scene implements Game_Scene {
+public class Fight_Scene extends Game_Scene {
     //TODO : might hold enemy but not the hero except on static field
     private final Image background = new Image(".//Resources/OutDoor.Level/town_land.png");
     private ArrayList<Enemy> enemies;
@@ -23,7 +23,7 @@ public class Fight_Scene extends Scene implements Game_Scene {
      * @param root root of the app
      */
     public Fight_Scene(Group root){
-        super(root);
+        super(root,null);
         //TODO make a loader of hero
         //TODO read the list of enemy and load them
     }
@@ -67,6 +67,11 @@ public class Fight_Scene extends Scene implements Game_Scene {
     public void Tick(double t) {
         //TODO : make the attack selection
         if (endOfTurn) playTurn();
+    }
+
+    @Override
+    public void addController() {
+        //TODO : load control map
     }
 
     /**

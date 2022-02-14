@@ -1,5 +1,4 @@
 package OutDoor.LevelElements;
-import Universal.ImageBuilder;
 
 public class PNJ {
     protected String name;

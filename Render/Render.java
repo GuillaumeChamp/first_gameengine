@@ -1,3 +1,4 @@
+import Universal.BackgroundMusic;
 import Universal.Player;
 import OutDoor.Scene_outside;
 import Universal.Game_Scene;
@@ -8,21 +9,24 @@ import javafx.scene.canvas.*;
 import javafx.animation.AnimationTimer;
 
 public class Render extends Application {
-
+    static Canvas canvas = new Canvas(Game_Scene.width,Game_Scene.height);
     public void start(Stage theStage) {
         theStage.setTitle("Render");
         Player player = new Player();
         Group root = new Group();
+        int borderXSize = 0;
+        int borderYSize = 70;
+
+        final double defaultWidth = Screen.getPrimary().getBounds().getWidth()-borderXSize;
+        final double defaultHeight = Screen.getPrimary().getBounds().getHeight()-borderYSize;
 
         final long startNanoTime = System.nanoTime();
-        final long width = 512; //width of the window
-        final long height = 512; //height of the window
-        Canvas canvas = new Canvas(width, height);
-        root.getChildren().add(canvas);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        Game_Scene ActiveScene = new Scene_outside(root,player,gc,width,height);
-        theStage.setScene((Scene) ActiveScene);
+        root.getChildren().add(canvas);
+        //BackgroundMusic sound = new BackgroundMusic("Mystic_Forest");
+
+        Game_Scene ActiveScene = new Scene_outside(root,player,canvas,defaultWidth,defaultHeight);
+        theStage.setScene(ActiveScene);
 
         new AnimationTimer() {
             public void handle(long currentNanoTime) {

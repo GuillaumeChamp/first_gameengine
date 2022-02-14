@@ -8,7 +8,7 @@ public class AnimatedImage
     protected double duration;
 
     public AnimatedImage(String path){
-        frames = ImageBuilder.build(path);
+        frames = ImageCropper.crop(path,0,40,40);
         duration = 1;
     }
 
